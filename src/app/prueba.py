@@ -1,7 +1,7 @@
-from controller import *
-from model import *
-from util import *
-from entity import *
+from src.app.controller import *
+from src.app.model import *
+from src.app.util import *
+from src.app.entity import *
 
 class prueba:
     trabajador=input("ingrese nombre del trabajador: ")

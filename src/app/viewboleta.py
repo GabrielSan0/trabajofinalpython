@@ -1,5 +1,5 @@
 import tkinter as tkk 
-from controller import *
+from src.app.controller import *
 from entity import *
 from tkinter import PhotoImage
 from PIL import Image, ImageTk
@@ -54,6 +54,17 @@ def categorias():
     txt3.insert("1.0",r1)
     
 
+def abrir_viewboleta(r1):
+    ventana_boleta = tkk.Toplevel(root)
+    ventana_boleta.title("BOLETA")
+    ventana_boleta.geometry("1440x960+180+20")
+    ventana_boleta.minsize(860, 960)
+    ventana_boleta.config(bg=c_fondo)
+
+    lbl_r1 = tkk.Label(ventana_boleta, text=r1, font=("Consolas", 12))
+    lbl_r1.pack()
+
+    ventana_boleta.mainloop()
 
 
 
@@ -204,7 +215,7 @@ txttardanzas.grid(row=1 ,column=4,padx=15)
 
 
 
-btn1 = tkk.Button(framebotones, text="Ingresar", command=categorias, width=30, fg="white", font=('Calibri', 12))
+btn1 = tkk.Button(framebotones, text="Ingresar", command=lambda: abrir_viewboleta(r1), width=30, fg="white", font=('Calibri', 12))
 btn1.config(bg=c_botoningresar, highlightbackground=c_cuadro, highlightthickness=2, relief="groove")
 btn1.grid(row=0, column=1, padx=100, pady=30)
 

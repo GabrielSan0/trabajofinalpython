@@ -1,8 +1,8 @@
-from model import *
-from util import *
-from entity import *
+from src.app.model import *
+from src.app.util import *
+from src.app.entity import *
 
-class categoriacController:
+class CategoriacController:
     def __init__(self) :
         self.__model=Operaciones()
         

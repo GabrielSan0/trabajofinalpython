@@ -1,5 +1,5 @@
-from entity import *
-from util import *
+from src.app.entity import *
+from src.app.util import *
         
 # class Categorias:
 #     def categorias(self,px):

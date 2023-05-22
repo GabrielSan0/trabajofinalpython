@@ -1,8 +1,14 @@
 import tkinter as tkk 
-from controller import *
-from entity import *
+from src.app.controller import *
+from src.app.entity import *
 from tkinter import PhotoImage
 from PIL import Image, ImageTk
+import os
+
+
+CORE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+print(CORE_DIR)
 
 
 c_fondo = '#363435'
@@ -54,42 +60,23 @@ def categorias():
     txt3.insert("1.0",r1)
     
 
-def abrir_viewboleta(r1):
-    ventana_boleta = tkk.Toplevel(root)
-    ventana_boleta.title("BOLETA")
-    ventana_boleta.geometry("1440x960+180+20")
-    ventana_boleta.minsize(860, 960)
-    ventana_boleta.config(bg=c_fondo)
-
-    lbl_r1 = tkk.Label(ventana_boleta, text=r1, font=("Consolas", 12))
-    lbl_r1.pack()
-
-    ventana_boleta.mainloop()
 
 
 
 frameimage = tkk.Frame(root, width=1246, height=274, bg="red")
 frameimage.pack()
 
-img_original = Image.open('python/trabajofinal/images/imgferotek.jpg')
+mifile1 = os.path.join(CORE_DIR, "assets/images/imgferotek.jpg")
+img_original = Image.open(mifile1)
 img_resized = img_original.resize((1246, 274), Image.ANTIALIAS)
 img_titule = ImageTk.PhotoImage(img_resized)
 
 label_image = tkk.Label(frameimage, image=img_titule)
 label_image.pack(fill="both")
 
-
-
-
-
-
-
-
 frametable = tkk.Frame(root, width=1246, height=274 )
 frametable.config(bg=c_fondo)
 frametable.pack()
-
-
 
 frametitulos = tkk.Frame(root, width=1246, height=68)
 frametitulos.config(bg=c_fondo)
@@ -215,7 +202,7 @@ txttardanzas.grid(row=1 ,column=4,padx=15)
 
 
 
-btn1 = tkk.Button(framebotones, text="Ingresar", command=lambda: abrir_viewboleta(r1), width=30, fg="white", font=('Calibri', 12))
+btn1 = tkk.Button(framebotones, text="Ingresar", command=categorias, width=30, fg="white", font=('Calibri', 12))
 btn1.config(bg=c_botoningresar, highlightbackground=c_cuadro, highlightthickness=2, relief="groove")
 btn1.grid(row=0, column=1, padx=100, pady=30)
 
@@ -227,7 +214,9 @@ sp3=tkk.Label(root)
 
 #imagen 
 
-logo = PhotoImage(file='python/trabajofinal/images/logo.png')
+mifile2 = os.path.join(CORE_DIR, "assets/images/logo.png")
+
+logo = PhotoImage(file=mifile2)
 
 txt3=tkk.Text(root)
 txt3.pack()
